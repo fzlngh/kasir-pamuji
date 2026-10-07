@@ -1,0 +1,117 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --neu-bg: #e6e9ef;
+  --neu-light: #ffffff;
+  --neu-dark: #aeb8cc;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  background: var(--neu-bg);
+  color: #3e4653;
+}
+
+/* =========================================================
+   Neumorphic surface system
+   Soft, monochrome, extruded / pressed-in shapes instead of
+   borders or flat drop shadows. Intensity scales down on small
+   screens so the effect stays crisp instead of muddy.
+   ========================================================= */
+
+.neu-raised {
+  background: var(--neu-bg);
+  border-radius: 28px;
+  box-shadow: 10px 10px 24px var(--neu-dark), -10px -10px 24px var(--neu-light);
+}
+
+.neu-raised-sm {
+  background: var(--neu-bg);
+  border-radius: 18px;
+  box-shadow: 6px 6px 14px var(--neu-dark), -6px -6px 14px var(--neu-light);
+}
+
+.neu-pressed {
+  background: var(--neu-bg);
+  border-radius: 16px;
+  box-shadow: inset 5px 5px 10px var(--neu-dark), inset -5px -5px 10px var(--neu-light);
+}
+
+.neu-flat {
+  background: var(--neu-bg);
+  border-radius: 14px;
+  box-shadow: 3px 3px 8px var(--neu-dark), -3px -3px 8px var(--neu-light);
+}
+
+.neu-btn {
+  transition: box-shadow 0.15s ease, transform 0.15s ease;
+}
+.neu-btn:active {
+  box-shadow: inset 4px 4px 8px var(--neu-dark), inset -4px -4px 8px var(--neu-light);
+  transform: translateY(1px);
+}
+
+@media (max-width: 640px) {
+  .neu-raised {
+    border-radius: 22px;
+    box-shadow: 6px 6px 14px var(--neu-dark), -6px -6px 14px var(--neu-light);
+  }
+  .neu-raised-sm {
+    border-radius: 14px;
+    box-shadow: 4px 4px 10px var(--neu-dark), -4px -4px 10px var(--neu-light);
+  }
+  .neu-pressed {
+    border-radius: 12px;
+    box-shadow: inset 3px 3px 7px var(--neu-dark), inset -3px -3px 7px var(--neu-light);
+  }
+  .neu-flat {
+    box-shadow: 2px 2px 6px var(--neu-dark), -2px -2px 6px var(--neu-light);
+  }
+}
+
+@keyframes pulseSoft {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+.animate-pulse-soft {
+  animation: pulseSoft 2s ease-in-out infinite;
+}
+
+::selection {
+  background: #3eb489;
+  color: #fff;
+}
+
+@media print {
+  @page {
+    margin: 12mm;
+  }
+
+  body * {
+    visibility: hidden !important;
+  }
+
+  .receipt-sheet,
+  .receipt-sheet * {
+    visibility: visible !important;
+  }
+
+  .receipt-sheet {
+    position: absolute !important;
+    inset: 0 auto auto 0 !important;
+    width: 100% !important;
+    max-width: none !important;
+    padding: 0 !important;
+  }
+}
