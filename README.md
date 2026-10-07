@@ -89,7 +89,7 @@ kasir-app-next/
 4. Setelah akun terverifikasi dan password dibuat, promosikan akun tersebut
    sebagai admin pertama di SQL Editor:
 
-   ```sql
+   
    DO $$
    DECLARE
      target_user_id uuid;
